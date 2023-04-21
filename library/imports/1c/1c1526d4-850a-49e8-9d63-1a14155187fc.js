@@ -41,9 +41,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *          children：         子节点
  *          自身属性：          scale,width,opacity等
  *          脚本属性：          脚本实例对象的属性
+ * ↓↓参数可以用3种分隔符隔开↓↓
+ *          英文逗号、英文冒号、空格
  * ————————————————————————举个栗子————————————————————————
  * 脚本：    Hero
- * 参数：    wp,scale,angle,#angle,#hp（用英文逗号或回车分隔）
+ * 参数：    wp,scale,angle,#angle,#hp
  * 显示结果：世界坐标,节点scale,节点angle，Hero对象的angle,Hero对象的hp
  * ————————————————————————温馨提示————————————————————————
  * 初始化的时候，设置全局变量window['DATABOARD'] = false可屏蔽本项目所有DataBoard，不会产生任何额外开销\n
@@ -419,7 +421,7 @@ var DataBoard = /** @class */ (function (_super) {
         property
     ], DataBoard.prototype, "_customLabelString", void 0);
     __decorate([
-        property({ multiline: true, displayName: CC_DEV && '······参数', tooltip: CC_DEV && "—————支持的参数————\nwp：世界坐标\nradian：角度（单位：π）\nmatrix：变换矩阵\nparent：父节点\nchildren：子节点\n自身属性：scale,width,opacity等\n脚本属性：脚本实例对象的属性\n————举个栗子————\n脚本：Hero\n参数：wp,scale,angle,#angle,#hp\n↑↑↑用英文逗号或回车分隔↑↑↑\n显示结果：\n世界坐标,节点scale,节点angle，Hero对象的angle,Hero对象的hp\n————温馨提示————\n初始化的时候，设置全局变量\nwindow['DATABOARD'] = false\n可屏蔽本项目所有DataBoard，不会产生任何额外开销", visible: function () { return this.isCustomLabelActive; } })
+        property({ multiline: true, displayName: CC_DEV && '······参数', tooltip: CC_DEV && "—————支持的参数————\nwp：世界坐标\nradian：角度（单位：π）\nmatrix：变换矩阵\nparent：父节点\nchildren：子节点\n自身属性：scale,width,opacity等\n脚本属性：脚本实例对象的属性\n↓↓参数可以用3种分隔符隔开↓↓\n英文逗号、英文冒号、空格\n————举个栗子————\n脚本：Hero\n参数：wp,scale,angle,#angle,#hp\n显示结果：\n世界坐标,节点scale,节点angle，Hero对象的angle,Hero对象的hp\n————温馨提示————\n初始化的时候，设置全局变量\nwindow['DATABOARD'] = false\n可屏蔽本项目所有DataBoard，不会产生任何额外开销", visible: function () { return this.isCustomLabelActive; } })
     ], DataBoard.prototype, "customLabelString", null);
     __decorate([
         property

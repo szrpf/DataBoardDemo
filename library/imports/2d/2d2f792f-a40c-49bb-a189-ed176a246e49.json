@@ -599,7 +599,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "aeYV8DmBZGCYbgx+zLugPE"
+    "_id": "f8ojtV5RxJyppxJXTwvRbA"
   },
   {
     "__type__": "cc.Node",
@@ -661,7 +661,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "a1JNI4SG5OhIdvR9MemsPN"
+    "_id": "28JdLs6QFKdplow4Vcop4h"
   },
   {
     "__type__": "cc.Sprite",
@@ -691,7 +691,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "30b4ew0lNNAJUraMYHr2em"
+    "_id": "6a5nzBAKFG/Y3sA2e8abM6"
   },
   {
     "__type__": "cc.Node",
@@ -753,7 +753,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "73cTu6JRJHDZSOsZC/GNSq"
+    "_id": "96kbAXXyNK1akIGWmV2D4E"
   },
   {
     "__type__": "cc.Sprite",
@@ -783,7 +783,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "18T8mT1QNNb4iywy66/ir1"
+    "_id": "c634mO6m9DAoGcrT9u7GG3"
   },
   {
     "__type__": "cc.Node",
@@ -845,7 +845,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "33suo2+BdAA4yg7KMOhBfo"
+    "_id": "fbmT0N5IlBPaXEuSFKjmJS"
   },
   {
     "__type__": "cc.Sprite",
@@ -875,7 +875,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "e8cMOeGBFLaod8gecauS1T"
+    "_id": "d4fxTpMidJcZF86bFkr4G1"
   },
   {
     "__type__": "cc.Node",
@@ -940,7 +940,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "7eLOi10ORGRZAw4OSS/YX3"
+    "_id": "75V74ndIVEt4kNrIEmp+Wg"
   },
   {
     "__type__": "cc.Label",
@@ -957,8 +957,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "坐标:\t0,\t50\n角度:\t80°,\t弧度:\t0π\n世界坐标:\t(540,\t1010)\nhp:\t100 \t \t \tmp:\t60\n世界矩阵\n\t\t\t0\t\t-1\t\t\t0\t\t\t540\n\t\t\t1\t\t\t0\t\t\t0\t\t\t1010\n\t\t\t0\t\t\t0\t\t\t1\t\t\t0\n\t\t\t0\t\t\t0\t\t\t0\t\t\t1",
-    "_N$string": "坐标:\t0,\t50\n角度:\t80°,\t弧度:\t0π\n世界坐标:\t(540,\t1010)\nhp:\t100 \t \t \tmp:\t60\n世界矩阵\n\t\t\t0\t\t-1\t\t\t0\t\t\t540\n\t\t\t1\t\t\t0\t\t\t0\t\t\t1010\n\t\t\t0\t\t\t0\t\t\t1\t\t\t0\n\t\t\t0\t\t\t0\t\t\t0\t\t\t1",
+    "_string": "坐标:\t0,\t50\n角度:\t80°,\t弧度:\t0π\n世界坐标:\t(540,\t1010)\nhp:\t100 \t \t \tmp:\t60\n变换矩阵\n\t\t\t0\t\t-1\t\t\t0\t\t\t540\n\t\t\t1\t\t\t0\t\t\t0\t\t\t1010\n\t\t\t0\t\t\t0\t\t\t1\t\t\t0\n\t\t\t0\t\t\t0\t\t\t0\t\t\t1",
+    "_N$string": "坐标:\t0,\t50\n角度:\t80°,\t弧度:\t0π\n世界坐标:\t(540,\t1010)\nhp:\t100 \t \t \tmp:\t60\n变换矩阵\n\t\t\t0\t\t-1\t\t\t0\t\t\t540\n\t\t\t1\t\t\t0\t\t\t0\t\t\t1010\n\t\t\t0\t\t\t0\t\t\t1\t\t\t0\n\t\t\t0\t\t\t0\t\t\t0\t\t\t1",
     "_fontSize": 60,
     "_lineHeight": 72,
     "_enableWrapText": true,
@@ -973,7 +973,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "afXYt/MIdCsYdZHdLaQrZM"
+    "_id": "e3V1vuYdNIJJ/UR4RFFYQo"
   },
   {
     "__type__": "cc.LabelOutline",
@@ -991,7 +991,7 @@
       "a": 255
     },
     "_width": 6,
-    "_id": "4dY0mNgt5AAa2eTyR5SyuI"
+    "_id": "8c+vc5pnVMCZbBEgPSGytG"
   },
   {
     "__type__": "9285eM4YhBJhL8+C569X294",
@@ -1031,7 +1031,7 @@
     "_collideBoxOpacity": 100,
     "_isCustomLabelActive": true,
     "customComponentName": "Hero",
-    "_customLabelString": "坐标:x,y\n角度:angle,弧度:radian\n世界坐标:wp\nhp:#hp   mp:#mp\n世界矩阵\nmatrix",
+    "_customLabelString": "坐标:x,y\n角度:angle,弧度:radian\n世界坐标:wp\nhp:#hp   mp:#mp\n变换矩阵\nmatrix",
     "_customLabelOffset": {
       "__type__": "cc.Vec2",
       "x": 0,

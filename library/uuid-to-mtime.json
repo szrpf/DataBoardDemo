@@ -515,8 +515,8 @@
     "relativePath": "Texture"
   },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1682094590182,
-    "meta": 1682094590189,
+    "asset": 1682120346684,
+    "meta": 1682120346692,
     "relativePath": "Scene\\helloworld.fire"
   },
   "a8027877-d8d6-4645-97a0-52d4a0123dba": {
@@ -529,11 +529,6 @@
     "meta": 1682093911606,
     "relativePath": "cocos.anim"
   },
-  "1c1526d4-850a-49e8-9d63-1a14155187fc": {
-    "asset": 1682093268237,
-    "meta": 1682093275588,
-    "relativePath": "Script\\DataBoard.ts"
-  },
   "9285e338-6210-4984-bf3e-0b9ebd5f6f78": {
     "asset": 1682093585931,
     "meta": 1682093589126,
@@ -543,5 +538,10 @@
     "asset": 1682094492600,
     "meta": 1682094515211,
     "relativePath": "Texture\\zhizhuxia.png"
+  },
+  "1c1526d4-850a-49e8-9d63-1a14155187fc": {
+    "asset": 1682120674118,
+    "meta": 1682120683436,
+    "relativePath": "Script\\DataBoard.ts"
   }
 }
