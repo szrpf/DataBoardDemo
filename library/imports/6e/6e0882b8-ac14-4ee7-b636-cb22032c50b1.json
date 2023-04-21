@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "zhizhuxia",
+    "texture": "70364224-9941-46cb-9c14-263fa45363b9",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      170,
+      153
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      170,
+      153
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
