@@ -146,11 +146,11 @@ export default class DataBoard extends cc.Component {
     private monitorComp: cc.Component = null;
 
     protected onLoad() {
-        this.boardNode = this.node.getChildByName('DataBoard');
         if (!CC_EDITOR && !window['DATABOARD']) {
             this.destroy();
             return;
         }
+        this.boardNode = this.node.getChildByName('DataBoard');
         if (cc.isValid(this.boardNode)) {
             this.boardNode.removeFromParent();
             this.boardNode.destroy();
