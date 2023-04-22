@@ -99,9 +99,7 @@ export default class DataBoard extends cc.Component {
         this._customLabelString = value;
         this.customLabelStringSplit = value
             .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
-            .replace(/([^,])\n/g, '$1_\n').replace(/\n([^,])/g, '\n_$1')
-            .replace(/([^:])\n/g, '$1_\n').replace(/\n([^:])/g, '\n_$1')
-            .replace(/([^ ])\n/g, '$1_\n').replace(/\n([^ ])/g, '\n_$1')
+            .replace(/([^_])\n/g, '$1_\n').replace(/([^_])\n/g, '$1_\n').replace(/\n([^_])/g, '\n_$1')
             .split('_');
     }
     @property
