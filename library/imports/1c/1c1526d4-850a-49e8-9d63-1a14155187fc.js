@@ -450,7 +450,7 @@ var DataBoard = /** @class */ (function (_super) {
     DataBoard = __decorate([
         ccclass,
         executeInEditMode,
-        menu('Component/DataBoard')
+        menu('Comp/DataBoard')
     ], DataBoard);
     return DataBoard;
 }(cc.Component));

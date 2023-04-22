@@ -31,7 +31,7 @@ const LINEHEIGHT = 1.2;               //行高是字体大小的多少倍
 const { ccclass, property, executeInEditMode, menu } = cc._decorator;
 @ccclass
 @executeInEditMode
-@menu('Component/DataBoard')
+@menu('Comp/DataBoard')
 export default class DataBoard extends cc.Component {
     @property
     private _isOutlineBoxActive: boolean = false;
