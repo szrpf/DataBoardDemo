@@ -157,8 +157,7 @@ var DataBoard = /** @class */ (function (_super) {
             this._customLabelString = value;
             this.customLabelStringSplit = value
                 .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
-                .replace(/([^_])\n/g, '$1_\n').replace(/([^_])\n/g, '$1_\n').replace(/\n([^_])/g, '\n_$1')
-                .split('_');
+                .replace(/(?<!_)\n/g, '_\n').replace(/\n(?!_)/g, '\n_').split('_');
         },
         enumerable: false,
         configurable: true
@@ -207,11 +206,11 @@ var DataBoard = /** @class */ (function (_super) {
     });
     ;
     DataBoard.prototype.onLoad = function () {
-        this.boardNode = this.node.getChildByName('DataBoard');
         if (!CC_EDITOR && !window['DATABOARD']) {
             this.destroy();
             return;
         }
+        this.boardNode = this.node.getChildByName('DataBoard');
         if (cc.isValid(this.boardNode)) {
             this.boardNode.removeFromParent();
             this.boardNode.destroy();

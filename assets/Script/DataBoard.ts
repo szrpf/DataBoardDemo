@@ -99,8 +99,7 @@ export default class DataBoard extends cc.Component {
         this._customLabelString = value;
         this.customLabelStringSplit = value
             .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
-            .replace(/([^_])\n/g, '$1_\n').replace(/([^_])\n/g, '$1_\n').replace(/\n([^_])/g, '\n_$1')
-            .split('_');
+            .replace(/(?<!_)\n/g, '_\n').replace(/\n(?!_)/g, '\n_').split('_');
     }
     @property
     private _customLabelOffset: cc.Vec2 = cc.v2(0, 100);
