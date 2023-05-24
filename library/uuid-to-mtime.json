@@ -534,14 +534,14 @@
     "meta": 1684905427643,
     "relativePath": "Script\\DataBoard.ts"
   },
-  "9285e338-6210-4984-bf3e-0b9ebd5f6f78": {
-    "asset": 1684905223475,
-    "meta": 1684905427676,
-    "relativePath": "Script\\Hero.ts"
-  },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
     "asset": 1684905403655,
     "meta": 1684905427685,
     "relativePath": "Scene\\helloworld.fire"
+  },
+  "9285e338-6210-4984-bf3e-0b9ebd5f6f78": {
+    "asset": 1684905450979,
+    "meta": 1684905579431,
+    "relativePath": "Script\\Hero.ts"
   }
 }

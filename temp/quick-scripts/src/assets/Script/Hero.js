@@ -30,6 +30,21 @@ var Helloworld = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.hp = 100;
         _this.mp = 60;
+        _this.equip = {
+            name: '装备',
+            sword: {
+                name: '小刀',
+                attack: 30
+            },
+            shoe: {
+                name: '草鞋',
+                attr: {
+                    name: '属性',
+                    speed: 5,
+                    durable: 100
+                }
+            }
+        };
         return _this;
     }
     Helloworld.prototype.update = function (dt) {
