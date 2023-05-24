@@ -32,6 +32,7 @@ node_modules/
 *.pidb
 *.unityproj
 *.suo
+*.meta
 
 #/
 # OS generated files
