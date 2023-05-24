@@ -86,9 +86,15 @@
         "inspector",
         "cocos-services"
       ]
-    },
-    " common-asset-worker-worker": {}
+    }
   },
-  "panels": {},
+  "panels": {
+    "simulator-debugger": {
+      "x": 552,
+      "y": 190,
+      "width": 816,
+      "height": 639
+    }
+  },
   "panelLabelWidth": {}
 }

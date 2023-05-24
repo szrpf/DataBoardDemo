@@ -500,19 +500,24 @@
     "relativePath": "model\\primitives.fbx"
   },
   "29f52784-2fca-467b-92e7-8fd9ef8c57b7": {
-    "asset": 1684406957577,
-    "meta": 1684407653687,
+    "asset": 1684904993824,
+    "meta": 1684905842665,
     "relativePath": "Scene"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1684406957631,
-    "meta": 1684407653690,
+    "asset": 1684904993845,
+    "meta": 1684905842668,
     "relativePath": "Script"
   },
   "7b81d4e8-ec84-4716-968d-500ac1d78a54": {
-    "asset": 1684406957690,
-    "meta": 1684407653693,
+    "asset": 1684904993867,
+    "meta": 1684905842671,
     "relativePath": "Texture"
+  },
+  "2d2f792f-a40c-49bb-a189-ed176a246e49": {
+    "asset": 1684903499844,
+    "meta": 1684903499854,
+    "relativePath": "Scene\\helloworld.fire"
   },
   "a8027877-d8d6-4645-97a0-52d4a0123dba": {
     "asset": 1682246139000,
@@ -529,19 +534,14 @@
     "meta": 1684407654136,
     "relativePath": "Texture\\zhizhuxia.png"
   },
-  "1c1526d4-850a-49e8-9d63-1a14155187fc": {
-    "asset": 1684905338684,
-    "meta": 1684905427643,
-    "relativePath": "Script\\DataBoard.ts"
-  },
-  "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1684905403655,
-    "meta": 1684905427685,
-    "relativePath": "Scene\\helloworld.fire"
-  },
   "9285e338-6210-4984-bf3e-0b9ebd5f6f78": {
-    "asset": 1684905450979,
-    "meta": 1684905579431,
+    "asset": 1684903428076,
+    "meta": 1684903431254,
     "relativePath": "Script\\Hero.ts"
+  },
+  "1c1526d4-850a-49e8-9d63-1a14155187fc": {
+    "asset": 1684903544311,
+    "meta": 1684903582325,
+    "relativePath": "Script\\DataBoard.ts"
   }
 }

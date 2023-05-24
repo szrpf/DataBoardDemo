@@ -34,12 +34,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *          自定义参数：        节点自身属性，以及节点任意脚本中的属性
  *          锚点：             锚点位置会显示一个小红点
  * 自定义参数（配置想监控的数据）：
- *          wp：               世界坐标，即相对于屏幕左下角的坐标
- *          radian：           节点弧度，单位π
+ *          wp：               世界坐标
+ *          radian：           节点弧度（单位：π）
  *          matrix:            变换矩阵
- *          parent：           父节点
- *          children：         子节点
- *          自身属性：          scale,width,opacity等
+ *          自身属性：          x,y,parent,children等
  *          脚本属性：          脚本实例对象的属性
  * ↓↓参数可以用3种分隔符隔开↓↓
  *          英文逗号、英文冒号、空格
@@ -157,7 +155,7 @@ var DataBoard = /** @class */ (function (_super) {
             this._customLabelString = value;
             this.customLabelStringSplit = value
                 .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
-                .replace(/(?<!_)\n/g, '_\n').replace(/\n(?!_)/g, '\n_').split('_');
+                .replace(/_*\n_*/g, '_\n_').split('_');
         },
         enumerable: false,
         configurable: true
@@ -298,8 +296,8 @@ var DataBoard = /** @class */ (function (_super) {
             var tmp = null;
             switch (strs[i]) {
                 case 'wp':
-                    var pos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
-                    tmp = "(" + pos.x.toFixed(this.customLabelDigit) + ",\t" + pos.y.toFixed(this.customLabelDigit) + ")";
+                    var matrix = this.node['_worldMatrix'].m;
+                    tmp = matrix[12].toFixed(this.customLabelDigit) + ",\t" + matrix[13].toFixed(this.customLabelDigit);
                     break;
                 case 'angle':
                     tmp = this.node.angle.toFixed(this.customLabelDigit) + '°';
@@ -308,26 +306,21 @@ var DataBoard = /** @class */ (function (_super) {
                     tmp = (this.node.angle / 180).toFixed(this.customLabelDigit) + 'π';
                     break;
                 case 'matrix':
-                    var matrix = this.node['_worldMatrix'].m;
+                    matrix = this.node['_worldMatrix'].m;
                     tmp = '';
                     for (var i_1 = 0; i_1 < 4; ++i_1) {
                         for (var j = 0; j < 4; ++j) {
-                            var mm = matrix[j * 4 + i_1];
-                            tmp += (mm < 0 ? '\t\t' : '\t\t\t') + mm.toFixed(this.customLabelDigit);
+                            var m = matrix[j * 4 + i_1];
+                            tmp += (m < 0 ? '\t\t' : '\t\t\t') + m.toFixed(this.customLabelDigit);
                         }
-                        if (i_1 !== 3)
-                            tmp += '\n';
+                        i_1 !== 3 && (tmp += '\n');
                     }
-                    break;
-                case 'parent':
-                    tmp = this.node.parent.name;
                     break;
                 case 'children':
                     tmp = '';
                     for (var i_2 = 0, len_1 = this.node.childrenCount; i_2 < len_1; ++i_2) {
                         tmp += "\t\t\t" + i_2 + "\uFF1A" + this.node.children[i_2].name;
-                        if (i_2 !== len_1 - 1)
-                            tmp += '\n';
+                        i_2 !== len_1 - 1 && (tmp += '\n');
                     }
                     break;
                 case '~':
@@ -337,29 +330,40 @@ var DataBoard = /** @class */ (function (_super) {
                     tmp = ':\t';
                     break;
                 case '@':
-                    tmp = ' \t';
+                    tmp = '\t\t';
                     break;
                 default:
                     if (this.node[strs[i]] !== undefined) {
                         tmp = this.node[strs[i]];
                     }
                     else if (strs[i].startsWith('#') && this.monitorComp !== null) {
-                        tmp = this.monitorComp[strs[i].substring(1)];
+                        tmp = this.parseString(strs[i].substring(1));
                     }
                     else {
                         tmp = strs[i];
                     }
-                    if (tmp && tmp.name) {
+                    if (typeof tmp === 'number') {
+                        tmp = tmp.toFixed(this.customLabelDigit);
+                    }
+                    else if (tmp.name) {
                         tmp = tmp.name;
                     }
                     break;
             }
-            if (typeof tmp === 'number') {
-                tmp = tmp.toFixed(this.customLabelDigit);
-            }
             str += tmp;
         }
         this.customLabel.string = str;
+    };
+    DataBoard.prototype.parseString = function (str) {
+        var strs = str.split('.');
+        var ret = this.monitorComp[strs[0]] || "#" + strs[0];
+        for (var i = 1, len = strs.length; i < len; ++i) {
+            if (ret[strs[i]] === undefined) {
+                return (ret.name ? ret.name : ret) + "." + strs[i];
+            }
+            ret = ret[strs[i]];
+        }
+        return ret;
     };
     DataBoard.prototype.onDestroy = function () {
         if (cc.isValid(this.boardNode)) {
@@ -418,7 +422,7 @@ var DataBoard = /** @class */ (function (_super) {
         property
     ], DataBoard.prototype, "_customLabelString", void 0);
     __decorate([
-        property({ multiline: true, displayName: CC_DEV && '······参数', tooltip: CC_DEV && "—————支持的参数————\nwp：世界坐标\nradian：角度（单位：π）\nmatrix：变换矩阵\nparent：父节点\nchildren：子节点\n自身属性：scale,width,opacity等\n脚本属性：脚本实例对象的属性\n↓↓参数可以用3种分隔符隔开↓↓\n英文逗号、英文冒号、空格\n————举个栗子————\n脚本：Hero\n参数：wp,scale,angle,#angle,#hp\n显示结果：\n世界坐标,节点scale,节点angle，Hero对象的angle,Hero对象的hp\n————温馨提示————\n初始化的时候，设置全局变量\nwindow['DATABOARD'] = false\n可屏蔽本项目所有DataBoard，不会产生任何额外开销", visible: function () { return this.isCustomLabelActive; } })
+        property({ multiline: true, displayName: CC_DEV && '······参数', tooltip: CC_DEV && "—————支持的参数————\nwp：世界坐标\nradian：节点弧度（单位：π）\nmatrix：变换矩阵\n自身属性：x,y,parent,children等\n脚本属性：脚本实例对象的属性\n↓↓参数可以用3种分隔符隔开↓↓\n英文逗号、英文冒号、空格\n————举个栗子————\n脚本：Hero\n参数：wp,scale,angle,#angle,#hp\n显示结果：\n世界坐标,节点scale,节点angle，Hero对象的angle,Hero对象的hp\n————温馨提示————\n初始化的时候，设置全局变量\nwindow['DATABOARD'] = false\n可屏蔽本项目所有DataBoard，不会产生任何额外开销", visible: function () { return this.isCustomLabelActive; } })
     ], DataBoard.prototype, "customLabelString", null);
     __decorate([
         property
