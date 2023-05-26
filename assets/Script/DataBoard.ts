@@ -161,7 +161,7 @@ export default class DataBoard extends cc.Component {
         this.boardNode.zIndex = cc.macro.MAX_ZINDEX;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].LockedInEditor;
- 
+
         this.outlineBoxNode = new cc.Node('OutlineBox');
         this.outlineBoxNode.setParent(this.boardNode);
         this.outlineBoxNode.addComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
