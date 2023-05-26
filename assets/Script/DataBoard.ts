@@ -142,12 +142,12 @@ export default class DataBoard extends cc.Component {
     private customLabelStringSplit: string[] = null;
     private monitorComp: cc.Component = null;
 
-    protected onLoad() {
+    protected start() {
+        this.boardNode = this.node.getChildByName('DataBoard');
         if (!CC_EDITOR && !window['DATABOARD']) {
             this.destroy();
             return;
         }
-        this.boardNode = this.node.getChildByName('DataBoard');
         if (cc.isValid(this.boardNode)) {
             this.boardNode.removeFromParent();
             this.boardNode.destroy();
@@ -310,7 +310,7 @@ export default class DataBoard extends cc.Component {
         if (cc.isValid(this.boardNode)) {
             this.boardNode.removeFromParent();
             this.boardNode.destroy();
-        };
+        }
         this.node.targetOff(this);
     }
 }
