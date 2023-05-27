@@ -154,7 +154,7 @@ var DataBoard = /** @class */ (function (_super) {
         set: function (value) {
             this._customLabelString = value;
             this.customLabelStringSplit = value
-                .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
+                .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/ |\t/g, '_@_')
                 .replace(/_*\n_*/g, '_\n_').split('_');
         },
         enumerable: false,
@@ -203,12 +203,12 @@ var DataBoard = /** @class */ (function (_super) {
         configurable: true
     });
     ;
-    DataBoard.prototype.onLoad = function () {
+    DataBoard.prototype.start = function () {
+        this.boardNode = this.node.getChildByName('DataBoard');
         if (!CC_EDITOR && !window['DATABOARD']) {
             this.destroy();
             return;
         }
-        this.boardNode = this.node.getChildByName('DataBoard');
         if (cc.isValid(this.boardNode)) {
             this.boardNode.removeFromParent();
             this.boardNode.destroy();
@@ -219,7 +219,7 @@ var DataBoard = /** @class */ (function (_super) {
         this.boardNode.setParent(this.node);
         this.boardNode.x = this.boardNode.y = 0;
         this.boardNode.zIndex = cc.macro.MAX_ZINDEX;
-        this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
+        // this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].LockedInEditor;
         this.outlineBoxNode = new cc.Node('OutlineBox');
         this.outlineBoxNode.setParent(this.boardNode);
@@ -287,6 +287,11 @@ var DataBoard = /** @class */ (function (_super) {
             return;
         if (!this.customLabelStringSplit)
             return;
+        var radian = -this.node.angle * Math.PI / 180;
+        var cos = Math.cos(radian);
+        var sin = Math.sin(radian);
+        this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
+        this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
         var str = '';
         var strs = this.customLabelStringSplit;
         if (!this.monitorComp && this.customComponentName) {
@@ -356,7 +361,8 @@ var DataBoard = /** @class */ (function (_super) {
     };
     DataBoard.prototype.parseString = function (str) {
         var strs = str.split('.');
-        var ret = this.monitorComp[strs[0]] || "#" + strs[0];
+        var ret = this.monitorComp[strs[0]];
+        ret === undefined && (ret = "#" + strs[0]);
         for (var i = 1, len = strs.length; i < len; ++i) {
             if (ret[strs[i]] === undefined) {
                 return (ret.name ? ret.name : ret) + "." + strs[i];
@@ -370,7 +376,6 @@ var DataBoard = /** @class */ (function (_super) {
             this.boardNode.removeFromParent();
             this.boardNode.destroy();
         }
-        ;
         this.node.targetOff(this);
     };
     __decorate([

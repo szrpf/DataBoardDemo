@@ -96,7 +96,7 @@ export default class DataBoard extends cc.Component {
     private set customLabelString(value: string) {
         this._customLabelString = value;
         this.customLabelStringSplit = value
-            .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
+            .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/ |\t/g, '_@_')
             .replace(/_*\n_*/g, '_\n_').split('_');
     }
     @property
@@ -159,7 +159,7 @@ export default class DataBoard extends cc.Component {
         this.boardNode.setParent(this.node);
         this.boardNode.x = this.boardNode.y = 0;
         this.boardNode.zIndex = cc.macro.MAX_ZINDEX;
-        this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
+        // this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].LockedInEditor;
 
         this.outlineBoxNode = new cc.Node('OutlineBox');
@@ -235,6 +235,11 @@ export default class DataBoard extends cc.Component {
     protected update() {
         if (!this.isCustomLabelActive) return;
         if (!this.customLabelStringSplit) return;
+        let radian = -this.node.angle * Math.PI / 180;
+        let cos = Math.cos(radian);
+        let sin = Math.sin(radian);
+        this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
+        this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
         let str = '';
         let strs = this.customLabelStringSplit;
         if (!this.monitorComp && this.customComponentName) {
@@ -296,7 +301,8 @@ export default class DataBoard extends cc.Component {
 
     private parseString(str: string) {
         let strs = str.split('.');
-        let ret = this.monitorComp[strs[0]] || `#${strs[0]}`;
+        let ret = this.monitorComp[strs[0]];
+        ret === undefined && (ret = `#${strs[0]}`);
         for (let i = 1, len = strs.length; i < len; ++i) {
             if (ret[strs[i]] === undefined) {
                 return `${ret.name ? ret.name : ret}.${strs[i]}`;

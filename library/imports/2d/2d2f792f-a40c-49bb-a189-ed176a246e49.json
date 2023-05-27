@@ -412,12 +412,12 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        50,
         0,
         0,
         0,
-        0.6427876096865393,
-        0.766044443118978,
+        0,
+        0,
+        1,
         1,
         1,
         1
@@ -427,7 +427,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 80
+      "z": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -533,7 +533,7 @@
   {
     "__type__": "cc.Node",
     "_name": "DataBoard",
-    "_objFlags": 1536,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 8
     },
@@ -599,7 +599,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "b8IxWUbGBN4ZAK2hGc0mte"
+    "_id": "85BlQuDb9HZKuhEJxwyGF+"
   },
   {
     "__type__": "cc.Node",
@@ -661,7 +661,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "c7vtJRZAJCQ4T0beA4GE98"
+    "_id": "49+qljSBFDb61/iC62OrLE"
   },
   {
     "__type__": "cc.Sprite",
@@ -691,7 +691,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "c6k8j1YNNLH6iOBrpdN3kJ"
+    "_id": "6axJdFuntK570hv44oHwcH"
   },
   {
     "__type__": "cc.Node",
@@ -735,8 +735,8 @@
         0,
         0,
         0,
-        -0.6427876096865393,
-        0.766044443118978,
+        0,
+        1,
         1,
         1,
         1
@@ -746,14 +746,14 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": -80
+      "z": 0
     },
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "9aN+10CXdOSY8LkytqGrCE"
+    "_id": "66fiagvGZM17jxJS3e3R/O"
   },
   {
     "__type__": "cc.Sprite",
@@ -783,7 +783,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "66/N4fj+xMs5LA1EZkAegh"
+    "_id": "e7StEP5C5EIY76/7RYAGaS"
   },
   {
     "__type__": "cc.Node",
@@ -845,7 +845,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "97SVMRHiZESKvhs6O6T+F6"
+    "_id": "67uLDk0kNPMLrmc4a+2Lcz"
   },
   {
     "__type__": "cc.Sprite",
@@ -875,7 +875,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "0dYOQeFA1EubrzVCvgNCHr"
+    "_id": "19kjTk6vxDsqYAK8l1jO+n"
   },
   {
     "__type__": "cc.Node",
@@ -905,8 +905,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 651,
-      "height": 462.72
+      "width": 618.97,
+      "height": 390.72
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -918,12 +918,12 @@
       "ctor": "Float64Array",
       "array": [
         0,
+        150,
         0,
         0,
         0,
         0,
-        -0.6427876096865393,
-        0.766044443118978,
+        1,
         1,
         1,
         1
@@ -933,14 +933,14 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": -80
+      "z": 0
     },
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "abSX/4O+BGeKHeujiB3wJM"
+    "_id": "930hpjvLBPHbYO0z9MngLs"
   },
   {
     "__type__": "cc.Label",
@@ -957,8 +957,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "坐标:\t0.0,\t50.0\n角度:\t80.0°,\t弧度:\t0.4π\n世界坐标:\t540.0,\t1010.0\nhp:\t100.0\t\t\t\t\t\tmp:\t60.0\n小刀\n5.0",
-    "_N$string": "坐标:\t0.0,\t50.0\n角度:\t80.0°,\t弧度:\t0.4π\n世界坐标:\t540.0,\t1010.0\nhp:\t100.0\t\t\t\t\t\tmp:\t60.0\n小刀\n5.0",
+    "_string": "坐标:\t0.0,\t0.0\n角度:\t0.0°,\t弧度:\t0.0π\n世界坐标:\t540.0,\t960.0\nhp:\t100.0\t\t\t\t\t\tmp:\t60.0\n5.0",
+    "_N$string": "坐标:\t0.0,\t0.0\n角度:\t0.0°,\t弧度:\t0.0π\n世界坐标:\t540.0,\t960.0\nhp:\t100.0\t\t\t\t\t\tmp:\t60.0\n5.0",
     "_fontSize": 60,
     "_lineHeight": 72,
     "_enableWrapText": true,
@@ -973,7 +973,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "13p4urwflHk7m1T9Vqj5+5"
+    "_id": "357EdNN/VPTaPJCzr51Jj0"
   },
   {
     "__type__": "cc.LabelOutline",
@@ -991,7 +991,7 @@
       "a": 255
     },
     "_width": 6,
-    "_id": "f9RKPbYmBJLqgnT16oJjtk"
+    "_id": "b4ov1ei1RJaZNO5PGzLCHc"
   },
   {
     "__type__": "9285eM4YhBJhL8+C569X294",
@@ -1031,11 +1031,11 @@
     "_collideBoxOpacity": 100,
     "_isCustomLabelActive": true,
     "customComponentName": "Hero",
-    "_customLabelString": "坐标:x,y\n角度:angle,弧度:radian\n世界坐标:wp\nhp:#hp   mp:#mp\n#equip.sword\n#equip.shoe.attr.speed",
+    "_customLabelString": "坐标:x,y\n角度:angle,弧度:radian\n世界坐标:wp\nhp:#hp   mp:#mp\n#equip.shoe.attr.speed",
     "_customLabelOffset": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": 150
     },
     "_customLabelColor": {
       "__type__": "cc.Color",
@@ -1076,7 +1076,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 713,
+      "width": 714.85,
       "height": 268.8
     },
     "_anchorPoint": {
