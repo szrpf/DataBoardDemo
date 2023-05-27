@@ -154,7 +154,7 @@ var DataBoard = /** @class */ (function (_super) {
         set: function (value) {
             this._customLabelString = value;
             this.customLabelStringSplit = value
-                .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/  /g, '_@_')
+                .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/ /g, '_@_')
                 .replace(/_*\n_*/g, '_\n_').split('_');
         },
         enumerable: false,

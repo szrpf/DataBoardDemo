@@ -96,7 +96,7 @@ export default class DataBoard extends cc.Component {
     private set customLabelString(value: string) {
         this._customLabelString = value;
         this.customLabelStringSplit = value
-            .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/  /g, '_@_')
+            .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/ /g, '_@_')
             .replace(/_*\n_*/g, '_\n_').split('_');
     }
     @property
@@ -235,7 +235,7 @@ export default class DataBoard extends cc.Component {
     protected update() {
         if (!this.isCustomLabelActive) return;
         if (!this.customLabelStringSplit) return;
-        if(this.customLabelOffset.x !== 0 || this.customLabelOffset.y !== 0){
+        if (this.customLabelOffset.x !== 0 || this.customLabelOffset.y !== 0) {
             let radian = -this.node.angle * Math.PI / 180;
             let cos = Math.cos(radian);
             let sin = Math.sin(radian);

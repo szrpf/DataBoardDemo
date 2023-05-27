@@ -515,8 +515,8 @@
     "relativePath": "Texture"
   },
   "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1685198509889,
-    "meta": 1685198509897,
+    "asset": 1685199229658,
+    "meta": 1685199229670,
     "relativePath": "Scene\\helloworld.fire"
   },
   "a8027877-d8d6-4645-97a0-52d4a0123dba": {
@@ -540,8 +540,8 @@
     "relativePath": "Script\\Hero.ts"
   },
   "1c1526d4-850a-49e8-9d63-1a14155187fc": {
-    "asset": 1685198725140,
-    "meta": 1685198735447,
+    "asset": 1685199089854,
+    "meta": 1685199090808,
     "relativePath": "Script\\DataBoard.ts"
   }
 }

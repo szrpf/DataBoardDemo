@@ -598,7 +598,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "3bJREBcbZKLqDSz4LhRHLJ"
+    "_id": "02aPEAdt9H1KZFvp0jiC6V"
   },
   {
     "__type__": "cc.Node",
@@ -660,7 +660,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "bcSyBGvI1Plqe/WzYr3VDx"
+    "_id": "58D9GcW51Oq4ww7qAoD4YL"
   },
   {
     "__type__": "cc.Sprite",
@@ -690,7 +690,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "e4rWXBZIdL3I37yOiMLUkp"
+    "_id": "6b/PokY7ZFrp5yZoggTldA"
   },
   {
     "__type__": "cc.Node",
@@ -752,7 +752,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "d2mriWi19PIq4Szy+gixHz"
+    "_id": "46WE2ar3VOaakiPJum+yPu"
   },
   {
     "__type__": "cc.Sprite",
@@ -782,7 +782,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "57C42kzTlNG6EIZG27BGvo"
+    "_id": "b2s/+gsF5Ds4NYzdUb3qEU"
   },
   {
     "__type__": "cc.Node",
@@ -844,7 +844,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "86jFRLVFRCEZKk+7T7UNZp"
+    "_id": "b0ukWnN9lHgaSyvpJ44q2K"
   },
   {
     "__type__": "cc.Sprite",
@@ -874,7 +874,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "3f+lBF49pJWLH2L7X5jaEt"
+    "_id": "7aJNz2zWtOBp75N1TERtdX"
   },
   {
     "__type__": "cc.Node",
@@ -939,7 +939,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "4fBx2G8glEe4Xv4ozR+OYB"
+    "_id": "a2hqpAZktGbKAnkSVtm1zl"
   },
   {
     "__type__": "cc.Label",
@@ -956,8 +956,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "坐标:\t0.0,\t0.0\n角度:\t0.0°,\t弧度:\t0.0π\n世界坐标:\t540.0,\t960.0\nhp:\t100.0\t\t\t\t\t\tmp:\t60.0\n5.0",
-    "_N$string": "坐标:\t0.0,\t0.0\n角度:\t0.0°,\t弧度:\t0.0π\n世界坐标:\t540.0,\t960.0\nhp:\t100.0\t\t\t\t\t\tmp:\t60.0\n5.0",
+    "_string": "坐标:\t0.0,\t0.0\n角度:\t0.0°,\t弧度:\t0.0π\n世界坐标:\t540.0,\t960.0\nhp:\t100.0\t\tmp:\t60.0\n5.0",
+    "_N$string": "坐标:\t0.0,\t0.0\n角度:\t0.0°,\t弧度:\t0.0π\n世界坐标:\t540.0,\t960.0\nhp:\t100.0\t\tmp:\t60.0\n5.0",
     "_fontSize": 60,
     "_lineHeight": 72,
     "_enableWrapText": true,
@@ -972,7 +972,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "b9AHQFFjJI0q9XNZUOYi0T"
+    "_id": "17v4VMcstH1bzbpazMkeve"
   },
   {
     "__type__": "cc.LabelOutline",
@@ -990,7 +990,7 @@
       "a": 255
     },
     "_width": 6,
-    "_id": "6d1Kd0iBJCHptcQsvN7S7E"
+    "_id": "95XQUbLhtI86PHFI+wIARD"
   },
   {
     "__type__": "9285eM4YhBJhL8+C569X294",
@@ -1030,7 +1030,7 @@
     "_collideBoxOpacity": 100,
     "_isCustomLabelActive": true,
     "customComponentName": "Hero",
-    "_customLabelString": "坐标:x,y\n角度:angle,弧度:radian\n世界坐标:wp\nhp:#hp   mp:#mp\n#equip.shoe.attr.speed",
+    "_customLabelString": "坐标:x,y\n角度:angle,弧度:radian\n世界坐标:wp\nhp:#hp mp:#mp\n#equip.shoe.attr.speed",
     "_customLabelOffset": {
       "__type__": "cc.Vec2",
       "x": 0,
