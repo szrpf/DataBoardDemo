@@ -235,11 +235,13 @@ export default class DataBoard extends cc.Component {
     protected update() {
         if (!this.isCustomLabelActive) return;
         if (!this.customLabelStringSplit) return;
-        let radian = -this.node.angle * Math.PI / 180;
-        let cos = Math.cos(radian);
-        let sin = Math.sin(radian);
-        this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
-        this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
+        if(this.customLabelOffset.x !== 0 || this.customLabelOffset.y !== 0){
+            let radian = -this.node.angle * Math.PI / 180;
+            let cos = Math.cos(radian);
+            let sin = Math.sin(radian);
+            this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
+            this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
+        }
         let str = '';
         let strs = this.customLabelStringSplit;
         if (!this.monitorComp && this.customComponentName) {

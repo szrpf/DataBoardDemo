@@ -287,11 +287,13 @@ var DataBoard = /** @class */ (function (_super) {
             return;
         if (!this.customLabelStringSplit)
             return;
-        var radian = -this.node.angle * Math.PI / 180;
-        var cos = Math.cos(radian);
-        var sin = Math.sin(radian);
-        this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
-        this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
+        if (this.customLabelOffset.x !== 0 || this.customLabelOffset.y !== 0) {
+            var radian = -this.node.angle * Math.PI / 180;
+            var cos = Math.cos(radian);
+            var sin = Math.sin(radian);
+            this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
+            this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
+        }
         var str = '';
         var strs = this.customLabelStringSplit;
         if (!this.monitorComp && this.customComponentName) {
