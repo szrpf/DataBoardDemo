@@ -159,7 +159,7 @@ export default class DataBoard extends cc.Component {
         this.boardNode.setParent(this.node);
         this.boardNode.x = this.boardNode.y = 0;
         this.boardNode.zIndex = cc.macro.MAX_ZINDEX;
-        // this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
+        this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].LockedInEditor;
 
         this.outlineBoxNode = new cc.Node('OutlineBox');

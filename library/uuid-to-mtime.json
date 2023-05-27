@@ -534,14 +534,14 @@
     "meta": 1685194622776,
     "relativePath": "Texture\\zhizhuxia.png"
   },
-  "1c1526d4-850a-49e8-9d63-1a14155187fc": {
-    "asset": 1685197299221,
-    "meta": 1685197300603,
-    "relativePath": "Script\\DataBoard.ts"
-  },
   "9285e338-6210-4984-bf3e-0b9ebd5f6f78": {
     "asset": 1685197428895,
     "meta": 1685197433673,
     "relativePath": "Script\\Hero.ts"
+  },
+  "1c1526d4-850a-49e8-9d63-1a14155187fc": {
+    "asset": 1685197605521,
+    "meta": 1685197607883,
+    "relativePath": "Script\\DataBoard.ts"
   }
 }
