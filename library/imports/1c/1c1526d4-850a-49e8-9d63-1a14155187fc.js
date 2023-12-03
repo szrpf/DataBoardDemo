@@ -63,7 +63,7 @@ var DataBoard = /** @class */ (function (_super) {
         _this._collideBoxColor = new cc.Color(Math.random() * 255, Math.random() * 255, Math.random() * 255);
         _this._collideBoxOpacity = 100;
         _this._isCustomLabelActive = true;
-        _this.customComponentName = '';
+        _this._customComponentName = '';
         _this._customLabelString = 'x,y';
         _this._customLabelOffset = cc.v2(0, 100);
         _this._customLabelColor = new cc.Color(255, 255, 0);
@@ -149,12 +149,23 @@ var DataBoard = /** @class */ (function (_super) {
         configurable: true
     });
     ;
+    Object.defineProperty(DataBoard.prototype, "customComponentName", {
+        get: function () { return this._customComponentName; },
+        set: function (value) {
+            this._customComponentName = value;
+            value || (value = this.node.name);
+            value && (this.monitorComp = this.node.getComponent(value));
+        },
+        enumerable: false,
+        configurable: true
+    });
+    ;
     Object.defineProperty(DataBoard.prototype, "customLabelString", {
         get: function () { return this._customLabelString; },
         set: function (value) {
             this._customLabelString = value;
             this.customLabelStringSplit = value
-                .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/ /g, '_@_')
+                .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
                 .replace(/_*\n_*/g, '_\n_').split('_');
         },
         enumerable: false,
@@ -204,20 +215,19 @@ var DataBoard = /** @class */ (function (_super) {
     });
     ;
     DataBoard.prototype.start = function () {
-        this.boardNode = this.node.getChildByName('DataBoard');
         if (!CC_EDITOR && !window['DATABOARD']) {
             this.destroy();
             return;
         }
+        this.boardNode = this.node.getChildByName('DataBoard');
         if (cc.isValid(this.boardNode)) {
-            this.boardNode.removeFromParent();
             this.boardNode.destroy();
+            this.boardNode.removeFromParent();
         }
         var texture = new cc.Texture2D();
         texture.initWithData(new Uint8Array([255, 255, 255]), cc.Texture2D.PixelFormat.RGB888, 1, 1);
         this.boardNode = new cc.Node('DataBoard');
         this.boardNode.setParent(this.node);
-        this.boardNode.x = this.boardNode.y = 0;
         this.boardNode.zIndex = cc.macro.MAX_ZINDEX;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].LockedInEditor;
@@ -249,6 +259,7 @@ var DataBoard = /** @class */ (function (_super) {
         this.customLabelNode.y = this.customLabelOffset.y;
         this.customLabelNode.color = this.customLabelColor;
         this.customLabelSize = this._customLabelSize;
+        this.customComponentName = this._customComponentName;
         this.updateAngle();
         this.updateScale();
         this.updateAnchor();
@@ -287,18 +298,8 @@ var DataBoard = /** @class */ (function (_super) {
             return;
         if (!this.customLabelStringSplit)
             return;
-        if (this.customLabelOffset.x !== 0 || this.customLabelOffset.y !== 0) {
-            var radian = -this.node.angle * Math.PI / 180;
-            var cos = Math.cos(radian);
-            var sin = Math.sin(radian);
-            this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
-            this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
-        }
-        var str = '';
         var strs = this.customLabelStringSplit;
-        if (!this.monitorComp && this.customComponentName) {
-            this.monitorComp = this.node.getComponent(this.customComponentName);
-        }
+        var str = '';
         for (var i = 0, len = strs.length; i < len; ++i) {
             var tmp = null;
             switch (strs[i]) {
@@ -317,7 +318,7 @@ var DataBoard = /** @class */ (function (_super) {
                     tmp = '';
                     for (var i_1 = 0; i_1 < 4; ++i_1) {
                         for (var j = 0; j < 4; ++j) {
-                            var m = matrix[j * 4 + i_1];
+                            var m = matrix[(j << 2) + i_1];
                             tmp += (m < 0 ? '\t\t' : '\t\t\t') + m.toFixed(this.customLabelDigit);
                         }
                         i_1 !== 3 && (tmp += '\n');
@@ -362,12 +363,12 @@ var DataBoard = /** @class */ (function (_super) {
         this.customLabel.string = str;
     };
     DataBoard.prototype.parseString = function (str) {
+        var _a, _b;
         var strs = str.split('.');
-        var ret = this.monitorComp[strs[0]];
-        ret === undefined && (ret = "#" + strs[0]);
+        var ret = (_a = this.monitorComp[strs[0]]) !== null && _a !== void 0 ? _a : "#" + strs[0];
         for (var i = 1, len = strs.length; i < len; ++i) {
             if (ret[strs[i]] === undefined) {
-                return (ret.name ? ret.name : ret) + "." + strs[i];
+                return ((_b = ret.name) !== null && _b !== void 0 ? _b : ret) + "." + strs[i];
             }
             ret = ret[strs[i]];
         }
@@ -375,8 +376,8 @@ var DataBoard = /** @class */ (function (_super) {
     };
     DataBoard.prototype.onDestroy = function () {
         if (cc.isValid(this.boardNode)) {
-            this.boardNode.removeFromParent();
             this.boardNode.destroy();
+            this.boardNode.removeFromParent();
         }
         this.node.targetOff(this);
     };
@@ -423,8 +424,11 @@ var DataBoard = /** @class */ (function (_super) {
         property({ displayName: CC_DEV && '自定义参数', tooltip: CC_DEV && '配置显示的属性内容' })
     ], DataBoard.prototype, "isCustomLabelActive", null);
     __decorate([
+        property
+    ], DataBoard.prototype, "_customComponentName", void 0);
+    __decorate([
         property({ displayName: CC_DEV && '······脚本', tooltip: CC_DEV && '监控哪个脚本', visible: function () { return this.isCustomLabelActive; } })
-    ], DataBoard.prototype, "customComponentName", void 0);
+    ], DataBoard.prototype, "customComponentName", null);
     __decorate([
         property
     ], DataBoard.prototype, "_customLabelString", void 0);

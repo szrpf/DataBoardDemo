@@ -598,7 +598,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "3d8RDqQvVEfJkF7nWvrxTE"
+    "_id": "76KDntjjFLVKmtFHxYwrV6"
   },
   {
     "__type__": "cc.Node",
@@ -660,7 +660,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "c3XyfYRgRPB5iyAa58aSsW"
+    "_id": "80Ey3vT8tOoKasdL4WSmVR"
   },
   {
     "__type__": "cc.Sprite",
@@ -690,7 +690,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "8e55OmQuJIBYeXHoG9wTyk"
+    "_id": "cfdPG7L1VJi5XF5TaYomyp"
   },
   {
     "__type__": "cc.Node",
@@ -752,7 +752,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "d9CzwxVqJA5btSqQ2zxAtr"
+    "_id": "0ccJcWYaxEw6CAV6LDgwBF"
   },
   {
     "__type__": "cc.Sprite",
@@ -782,7 +782,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "28BN/vYpdA75aVQgtJV85T"
+    "_id": "a2z7GHvbBJtbeFFKuZMp8r"
   },
   {
     "__type__": "cc.Node",
@@ -844,7 +844,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "e1SVVBs6pDmI52ltKoFD6d"
+    "_id": "f7EXG9BGNEv6AWXdMTqWbb"
   },
   {
     "__type__": "cc.Sprite",
@@ -874,7 +874,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "025qCDItxA57ThVMG5sWtQ"
+    "_id": "2aE+3035tDJqfns9wb+A8e"
   },
   {
     "__type__": "cc.Node",
@@ -917,7 +917,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        150,
+        0,
         0,
         0,
         0,
@@ -939,7 +939,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "81cIITpURBEbMcOPB7cb6x"
+    "_id": "2b4Sev3gxKqbyDuqgotK3s"
   },
   {
     "__type__": "cc.Label",
@@ -972,7 +972,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "08NYYNx61NF42Hhp8PMtsi"
+    "_id": "cbby0qHztEJKoa9kkCSPhN"
   },
   {
     "__type__": "cc.LabelOutline",
@@ -990,7 +990,7 @@
       "a": 255
     },
     "_width": 6,
-    "_id": "caGnJok0NK/o3JsDAm2Z52"
+    "_id": "9bWro31eJKybmJGCrePXSg"
   },
   {
     "__type__": "9285eM4YhBJhL8+C569X294",
@@ -1029,12 +1029,12 @@
     },
     "_collideBoxOpacity": 100,
     "_isCustomLabelActive": true,
-    "customComponentName": "Hero",
+    "_customComponentName": "Hero",
     "_customLabelString": "坐标:x,y\n角度:angle,弧度:radian\n世界坐标:wp\nhp:#hp mp:#mp\n#equip.shoe.attr.speed",
     "_customLabelOffset": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 150
+      "y": 0
     },
     "_customLabelColor": {
       "__type__": "cc.Color",

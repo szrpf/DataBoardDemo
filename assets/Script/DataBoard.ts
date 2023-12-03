@@ -87,8 +87,15 @@ export default class DataBoard extends cc.Component {
         this._isCustomLabelActive = value;
         this.customLabelNode.active = value;
     }
+    @property
+    private _customComponentName: string = '';
     @property({ displayName: CC_DEV && '······脚本', tooltip: CC_DEV && '监控哪个脚本', visible() { return this.isCustomLabelActive; } })
-    private customComponentName: string = '';
+    private get customComponentName() { return this._customComponentName };
+    private set customComponentName(value: string) {
+        this._customComponentName = value;
+        value ||= this.node.name;
+        value && (this.monitorComp = this.node.getComponent(value));
+    }
     @property
     private _customLabelString: string = 'x,y';
     @property({ multiline: true, displayName: CC_DEV && '······参数', tooltip: CC_DEV && "—————支持的参数————\nwp：世界坐标\nradian：节点弧度（单位：π）\nmatrix：变换矩阵\n自身属性：x,y,parent,children等\n脚本属性：脚本实例对象的属性\n↓↓参数可以用3种分隔符隔开↓↓\n英文逗号、英文冒号、空格\n————举个栗子————\n脚本：Hero\n参数：wp,scale,angle,#angle,#hp\n显示结果：\n世界坐标,节点scale,节点angle，Hero对象的angle,Hero对象的hp\n————温馨提示————\n初始化的时候，设置全局变量\nwindow['DATABOARD'] = false\n可屏蔽本项目所有DataBoard，不会产生任何额外开销", visible() { return this.isCustomLabelActive } })
@@ -96,7 +103,7 @@ export default class DataBoard extends cc.Component {
     private set customLabelString(value: string) {
         this._customLabelString = value;
         this.customLabelStringSplit = value
-            .replace(/,|，/g, '_~_').replace(/:|：/g, '_!_').replace(/ /g, '_@_')
+            .replace(/,/g, '_~_').replace(/:/g, '_!_').replace(/ /g, '_@_')
             .replace(/_*\n_*/g, '_\n_').split('_');
     }
     @property
@@ -143,21 +150,20 @@ export default class DataBoard extends cc.Component {
     private monitorComp: cc.Component = null;
 
     protected start() {
-        this.boardNode = this.node.getChildByName('DataBoard');
         if (!CC_EDITOR && !window['DATABOARD']) {
             this.destroy();
             return;
         }
+        this.boardNode = this.node.getChildByName('DataBoard');
         if (cc.isValid(this.boardNode)) {
-            this.boardNode.removeFromParent();
             this.boardNode.destroy();
+            this.boardNode.removeFromParent();
         }
         let texture = new cc.Texture2D();
         texture.initWithData(new Uint8Array([255, 255, 255]), cc.Texture2D.PixelFormat.RGB888, 1, 1);
 
         this.boardNode = new cc.Node('DataBoard');
         this.boardNode.setParent(this.node);
-        this.boardNode.x = this.boardNode.y = 0;
         this.boardNode.zIndex = cc.macro.MAX_ZINDEX;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].HideInHierarchy;
         this.boardNode['_objFlags'] |= cc.Object['Flags'].LockedInEditor;
@@ -193,6 +199,7 @@ export default class DataBoard extends cc.Component {
         this.customLabelNode.y = this.customLabelOffset.y;
         this.customLabelNode.color = this.customLabelColor;
         this.customLabelSize = this._customLabelSize;
+        this.customComponentName = this._customComponentName;
 
         this.updateAngle();
         this.updateScale();
@@ -235,18 +242,8 @@ export default class DataBoard extends cc.Component {
     protected update() {
         if (!this.isCustomLabelActive) return;
         if (!this.customLabelStringSplit) return;
-        if (this.customLabelOffset.x !== 0 || this.customLabelOffset.y !== 0) {
-            let radian = -this.node.angle * Math.PI / 180;
-            let cos = Math.cos(radian);
-            let sin = Math.sin(radian);
-            this.customLabelNode.x = this.customLabelOffset.x * cos - this.customLabelOffset.y * sin;
-            this.customLabelNode.y = this.customLabelOffset.x * sin + this.customLabelOffset.y * cos;
-        }
-        let str = '';
         let strs = this.customLabelStringSplit;
-        if (!this.monitorComp && this.customComponentName) {
-            this.monitorComp = this.node.getComponent(this.customComponentName);
-        }
+        let str = '';
         for (let i = 0, len = strs.length; i < len; ++i) {
             let tmp = null;
             switch (strs[i]) {
@@ -265,7 +262,7 @@ export default class DataBoard extends cc.Component {
                     tmp = '';
                     for (let i = 0; i < 4; ++i) {
                         for (let j = 0; j < 4; ++j) {
-                            let m = matrix[j * 4 + i];
+                            let m = matrix[(j<<2) + i];
                             tmp += (m < 0 ? '\t\t' : '\t\t\t') + m.toFixed(this.customLabelDigit);
                         }
                         i !== 3 && (tmp += '\n');
@@ -303,11 +300,10 @@ export default class DataBoard extends cc.Component {
 
     private parseString(str: string) {
         let strs = str.split('.');
-        let ret = this.monitorComp[strs[0]];
-        ret === undefined && (ret = `#${strs[0]}`);
+        let ret = this.monitorComp[strs[0]] ?? `#${strs[0]}`;
         for (let i = 1, len = strs.length; i < len; ++i) {
             if (ret[strs[i]] === undefined) {
-                return `${ret.name ? ret.name : ret}.${strs[i]}`;
+                return `${ret.name ?? ret}.${strs[i]}`;
             }
             ret = ret[strs[i]];
         }
@@ -316,8 +312,8 @@ export default class DataBoard extends cc.Component {
 
     protected onDestroy() {
         if (cc.isValid(this.boardNode)) {
-            this.boardNode.removeFromParent();
             this.boardNode.destroy();
+            this.boardNode.removeFromParent();
         }
         this.node.targetOff(this);
     }
