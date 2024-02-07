@@ -198,8 +198,6 @@ export default class DataBoard extends cc.Component {
         this.customLabelNode.x = this.customLabelOffset.x;
         this.customLabelNode.y = this.customLabelOffset.y;
         this.customLabelNode.color = this.customLabelColor;
-        this.customLabelSize = this._customLabelSize;
-        this.customComponentName = this._customComponentName;
 
         this.updateAngle();
         this.updateScale();
@@ -209,6 +207,10 @@ export default class DataBoard extends cc.Component {
         this.node.on(cc.Node.EventType.SCALE_CHANGED, this.updateScale, this);
         this.node.on(cc.Node.EventType.ANCHOR_CHANGED, this.updateAnchor, this);
         this.node.on(cc.Node.EventType.SIZE_CHANGED, this.updateSize, this);
+        cc.director.once(cc.Director.EVENT_AFTER_DRAW, () => {
+            this.customLabelSize = this._customLabelSize;
+            this.customComponentName = this._customComponentName;
+        }, this);
     }
 
     private updateAngle() {
@@ -262,7 +264,7 @@ export default class DataBoard extends cc.Component {
                     tmp = '';
                     for (let i = 0; i < 4; ++i) {
                         for (let j = 0; j < 4; ++j) {
-                            let m = matrix[(j<<2) + i];
+                            let m = matrix[(j << 2) + i];
                             tmp += (m < 0 ? '\t\t' : '\t\t\t') + m.toFixed(this.customLabelDigit);
                         }
                         i !== 3 && (tmp += '\n');

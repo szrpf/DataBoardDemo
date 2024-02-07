@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "cocos",
+  "_name": "Test",
   "_objFlags": 0,
   "_native": "",
   "_duration": 2.5,
@@ -14,7 +14,7 @@
       "scale": []
     },
     "paths": {
-      "挂上DataBoard的对象": {
+      "挂着DataBoard的节点": {
         "props": {
           "position": [
             {

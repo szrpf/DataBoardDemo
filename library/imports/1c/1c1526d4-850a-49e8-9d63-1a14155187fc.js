@@ -215,6 +215,7 @@ var DataBoard = /** @class */ (function (_super) {
     });
     ;
     DataBoard.prototype.start = function () {
+        var _this = this;
         if (!CC_EDITOR && !window['DATABOARD']) {
             this.destroy();
             return;
@@ -258,8 +259,6 @@ var DataBoard = /** @class */ (function (_super) {
         this.customLabelNode.x = this.customLabelOffset.x;
         this.customLabelNode.y = this.customLabelOffset.y;
         this.customLabelNode.color = this.customLabelColor;
-        this.customLabelSize = this._customLabelSize;
-        this.customComponentName = this._customComponentName;
         this.updateAngle();
         this.updateScale();
         this.updateAnchor();
@@ -268,6 +267,10 @@ var DataBoard = /** @class */ (function (_super) {
         this.node.on(cc.Node.EventType.SCALE_CHANGED, this.updateScale, this);
         this.node.on(cc.Node.EventType.ANCHOR_CHANGED, this.updateAnchor, this);
         this.node.on(cc.Node.EventType.SIZE_CHANGED, this.updateSize, this);
+        cc.director.once(cc.Director.EVENT_AFTER_DRAW, function () {
+            _this.customLabelSize = _this._customLabelSize;
+            _this.customComponentName = _this._customComponentName;
+        }, this);
     };
     DataBoard.prototype.updateAngle = function () {
         this.collideBoxNode.angle = -this.node.angle;
